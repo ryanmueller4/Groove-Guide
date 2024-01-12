@@ -4,6 +4,7 @@ const express = require ('express')
 const session = require('express-session');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars')
+const router = require('./controllers')
 
 const sequelize = require('./config/connection')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(router)
 
 // Sync the Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {

@@ -5,14 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/public/css/jass.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
-    <header class="display-flex justify-space-between align-center">
-        <h1>
-            Groove Guide
-        </h1>
-    </header>
+   <!-- Navigation bar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        {{ GrooveGuide }}
+      </a>
+    </div>
+
+      <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          {{#if isAuthenticated}}
+            <a class="button is-danger" href="/logout">
+              Log out
+            </a>
+          {{else}}
+            <a class="button is-light" href="/login">
+              Log in
+            </a>
+            <a class="button is-primary" href="/signup">
+              Sign up
+            </a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </nav>
+
     <main class="">
         {{{ body }}}
     </main>

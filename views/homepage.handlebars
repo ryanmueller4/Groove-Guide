@@ -1,0 +1,30 @@
+<!-- renders when login -->
+<div class="section">
+  <div class="container">
+    <h1 class="title">Welcome to GrooveGuide</h1>
+
+    {{!-- Check if artists data is available --}}
+    {{#if artists}}
+      <h2 class="subtitle">Top Artists:</h2>
+
+      <ul>
+        {{!-- Iterate through the artists and display relevant information --}}
+        {{#each artists}}
+          <li>
+            <strong>{{ name }}</strong> ({{ country }})
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No artist data available.</p>
+    {{/if}}
+
+    {{!-- Display user-related content based on authentication status --}}
+    {{#if isAuthenticated}}
+      <p>You are currently logged in. <a href="/logout">Log out</a></p>
+    {{else}}
+      <p>You are not logged in. <a href="/views/login.handlebars">Log in</a> or <a href="/views/login.handlebars">Sign up</a>.</p>
+    {{/if}}
+  </div>
+</div>
+<h1>homepage</h1>

@@ -15,10 +15,29 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        sequelize,
-        timestamps: true,
-        underscored: true,
-        modelName: 'comment',
+        user_id: {
+            type: DataTypes.INTEGER,
+            refernces: {
+                model: 'user',
+                key: 'id',
+                unique: false
+            }
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            refernces: {
+                model: 'post',
+                key: 'id',
+                unique: false
+            }
+        },
+
+    },
+    {
+    sequelize,
+    timestamps: true,
+    underscored: true,
+    modelName: 'comment',
     },
 );
 

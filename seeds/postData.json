@@ -1,0 +1,20 @@
+[
+    {
+        "mbid": "1b022e01-4da6-387b-8658-8678046e4cef",
+        "recommended": true,
+        "caption": "I love this album, it's one of my favorites!",
+        "user_id": 3
+    },
+    {
+        "mbid": "20244d07-534f-4eff-b4d4-930878889970",
+        "recommended": true,
+        "caption": "Taylor Swift is the best musician to ever live.",
+        "user_id": 1
+    },
+    {
+        "mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e",
+        "recommended": false,
+        "caption": "I would rather listen to glass breaking.",
+        "user_id": 2
+    }
+]

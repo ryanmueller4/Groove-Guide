@@ -9,6 +9,9 @@ const router = require('./controllers')
 const sequelize = require('./config/connection')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// Import the logoutRoutes module
+const logoutRoutes = require('./controllers/logoutRoutes')
+
 // Initialize the Express application
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +27,23 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(router)
+// Set up session middleware
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
+// Use the logoutRoutes middleware
+app.use(logoutRoutes);
+
+app.use(routes)
 
 // Sync the Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {

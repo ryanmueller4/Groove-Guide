@@ -21,9 +21,9 @@
       <div class="navbar-item">
         <div class="buttons">
           {{#if isAuthenticated}}
-            <a class="button is-danger" href="/logout">
+            <button class="button is-danger" id="logout">
               Log out
-            </a>
+            </button>
           {{else}}
             <a class="button is-light" href="/login">
               Log in
@@ -40,6 +40,10 @@
     <main class="">
         {{{ body }}}
     </main>
+
+    {{#if isAuthenticated}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
     
 </body>
 

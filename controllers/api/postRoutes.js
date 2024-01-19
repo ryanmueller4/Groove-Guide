@@ -13,23 +13,23 @@ router.get('/', async (req, res) => {
   }
 });
   
-router.get('/:id', async (req, res) => {
-  // find one post by its `id` value
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment }],
-    });
+// router.get('/:id', async (req, res) => {
+//   // find one post by its `id` value
+//   try {
+//     const postData = await Post.findByPk(req.params.id, {
+//       include: [{ model: Comment }],
+//     });
 
-    if (!postData) {
-      res.status(404).json({ message: 'No post found with that id!' });
-      return;
-    }
+//     if (!postData) {
+//       res.status(404).json({ message: 'No post found with that id!' });
+//       return;
+//     }
 
-    res.status(200).json(postData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(postData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.post('/', async (req, res) => {
   // create a new post

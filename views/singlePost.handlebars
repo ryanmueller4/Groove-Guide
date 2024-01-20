@@ -1,0 +1,6 @@
+<h1>{{post.mbid}}</h1>
+<p>{{post.caption}}</p>
+<p>- {{post.user.name}}</p>
+{{#each post.comments as |comment|}}
+{{> comment-details}}
+{{/each}}

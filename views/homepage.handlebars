@@ -2,11 +2,9 @@
 <div class="section">
   <div class="container">
     <h1 class="title">Welcome to GrooveGuide</h1>
-
     {{!-- Check if artists data is available --}}
     {{#if artists}}
       <h2 class="subtitle">Top Artists:</h2>
-
       <ul>
         {{!-- Iterate through the artists and display relevant information --}}
         {{#each artists}}
@@ -18,12 +16,29 @@
     {{else}}
       <p>No artist data available.</p>
     {{/if}}
-
     {{!-- Display user-related content based on authentication status --}}
     {{#if isAuthenticated}}
       <p>You are currently logged in. <a href="/logout">Log out</a></p>
     {{else}}
       <p>You are not logged in. <a href="/views/login.handlebars">Log in</a> or <a href="/views/login.handlebars">Sign up</a>.</p>
+    {{/if}}
+    {{!-- Display posts --}}
+     {{#if posts}}
+      <h2 class="subtitle">Recent Posts:</h2>
+      <ul>
+        {{!-- Iterate through the posts and display relevant information --}}
+        {{#each posts}}
+          <li>
+            <strong>Post Caption:</strong> {{ caption }}
+            <br>
+            <strong>Recommended:</strong> {{ recommended }}
+            <br>
+            <strong>User ID:</strong> {{ user_id }}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No posts available.</p>
     {{/if}}
   </div>
 </div>

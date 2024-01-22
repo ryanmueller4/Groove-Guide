@@ -5,11 +5,21 @@
 {{else}}
 <p><strong>Recommended: No</strong></p>
 {{/if}}
-<p>- {{user.name}}</p>
+<p class="user-id mb-2">- {{user.name}}</p>
 <br>
 <p><strong>Comments:</strong></p>
 <br>
 {{#each comments as |comment|}}
-{{> comment-details}}
+    <div class="card mb-2">
+        <div class="card-content">
+            <p class="user-id">- {{comment.user.name}}</p>
+            <p>{{comment.text}}</p>
+            {{#if comment.recommended}}
+            <p><strong>Recommended: Yes</strong></p>
+            {{else}}
+            <p><strong>Recommended: No</strong></p>
+            {{/if}}
+        </div>
+    </div>
 {{/each}}
 <br>

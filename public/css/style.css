@@ -1,109 +1,149 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F4F4F4;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .title {
-    color: #333;
-    font-size: 2em;
-  }
-  .subtitle {
-    color: #555;
-    font-size: 1.5em;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  li {
-    margin-bottom: 10px;
-  }
-  .has-text-success {
-    color: #4CAF50; /* Green */
-  }
-  .has-text-info {
-    color: #2196F3; /* Blue */
-  }
-  /* Login and signup form styling */
-  .row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 50px;
-  }
-  .col-md-6 {
-    width: 45%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  .form {
-    margin-top: 20px;
-  }
-  .form h3 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  .form-group {
-    margin-bottom: 15px;
-  }
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  .btn-primary {
-    background-color: #2196F3; /* Blue */
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .btn-primary:hover {
-    background-color: #0C7CD5; /* Darker Blue */
-  }
-  /* Navigation bar and main content styling */
-  .navbar {
-    background-color: #2196F3; /* Blue */
-  }
-  .navbar-item {
-    font-weight: bold;
-    color: #fff !important; /* Override Bulma's default text color */
-  }
-  .buttons {
-    display: flex;
-    align-items: center;
-  }
-  .button {
-    margin-left: 10px;
-  }
-  .button.is-danger {
-    background-color: #FF3860; /* Red */
-  }
-  .button.is-danger:hover {
-    background-color: #D62C4F; /* Darker Red */
-  }
-  .button.is-light {
-    background-color: #fff; /* White */
-    color: #333 !important; /* Override Bulma's default text color */
-  }
-  .button.is-light:hover {
-    background-color: #F2F2F2; /* Light Gray */
-  }
-  .button.is-primary {
-    background-color: #FF3860; /* Red */
-  }
-  .button.is-primary:hover {
-    background-color: #D62C4F; /* Darker Red */
-  }
-  main {
-    padding: 20px;
-  }
+  font-family: 'Arial', sans-serif;
+  background-color: #F4F4F4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  color: #333;
+  font-size: 2em;
+}
+
+.subtitle {
+  color: #555;
+  font-size: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.has-text-success {
+  color: #4CAF50; /* Green */
+}
+
+.has-text-info {
+  color: #2196F3; /* Blue */
+}
+
+/* Login and signup form styling */
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.col-md-6 {
+  width: 45%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.form h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #2196F3; /* Blue */
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0C7CD5; /* Darker Blue */
+}
+
+/* Navigation bar and main content styling */
+.navbar {
+  background-color: #2196F3; /* Blue */
+}
+
+.navbar-item {
+  font-weight: bold;
+  color: #fff !important; /* Override Bulma's default text color */
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  margin-left: 10px;
+}
+
+.button.is-danger {
+  background-color: #FF3860; /* Red */
+}
+
+.button.is-danger:hover {
+  background-color: #D62C4F; /* Darker Red */
+}
+
+.button.is-light {
+  background-color: #fff; /* White */
+  color: #333 !important; /* Override Bulma's default text color */
+}
+
+.button.is-light:hover {
+  background-color: #F2F2F2; /* Light Gray */
+}
+
+.button.is-primary {
+  background-color: #FF3860; /* Red */
+}
+
+.button.is-primary:hover {
+  background-color: #D62C4F; /* Darker Red */
+}
+
+main {
+  padding: 20px;
+}
+
+.navbar {
+  text-align: center;
+  font-size: x-large;
+}
+
+.onePost, .loginBorder {
+  border: 2px solid #000;
+}
+
+.oneComment {
+  border: 2px solid #000;
+  padding-left: 30px;
+}

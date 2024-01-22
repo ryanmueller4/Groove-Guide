@@ -16,11 +16,14 @@
     {{!-- Display posts --}}
      {{#if posts}}
       <h2 class="subtitle">Recent Posts:</h2>
-      <section class="posts">
-        {{#each posts as |post|}}
-        {{> post-details}}
-        {{/each}}
-      </section>
+      <div class="box">
+        <section class="posts">
+          {{#each posts as |post|}}
+            {{> post-details}}
+            <hr class="has-background-grey-darker is-marginless">
+          {{/each}}
+        </section>
+      </div>
     {{else}}
       <p>No posts available.</p>
     {{/if}}

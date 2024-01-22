@@ -1,25 +1,35 @@
 <h1>{{mbid}}</h1>
 <p>{{caption}}</p>
 {{#if recommended}}
-<p><strong>Recommended: Yes</strong></p>
+<p><strong>Recommended: </strong> Yes</p>
 {{else}}
-<p><strong>Recommended: No</strong></p>
+<p><strong>Recommended: </strong> No</p>
 {{/if}}
 <p class="user-id mb-2">- {{user.name}}</p>
 <br>
-<p><strong>Comments:</strong></p>
-<br>
-{{#each comments as |comment|}}
-    <div class="card mb-2">
-        <div class="card-content">
-            <p class="user-id">- {{comment.user.name}}</p>
-            <p>{{comment.text}}</p>
-            {{#if comment.recommended}}
-            <p><strong>Recommended: Yes</strong></p>
-            {{else}}
-            <p><strong>Recommended: No</strong></p>
-            {{/if}}
-        </div>
+
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Component
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+      <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
     </div>
-{{/each}}
-<br>
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer>
+</div>

@@ -2,11 +2,13 @@
   <div class="container">
     <h1 class="title">My Posts</h1>
 
-    {{#if userPosts}}
+    {{#if result}}
     <a href="/post/{{id}}">
   <div class="card">
+    <section>
+          {{#each result as |post|}}
     <header class="card-header">
-      <p class="card-header-title">{{post.mbid}}</p>
+      <p class="card-header-title">{{result}}</p>
     </header>
     <div class="card-content">
       <div class="content">
@@ -19,6 +21,9 @@
         - {{user.name}}
       </div>
     </div>
+    {{/each}}
+    </section>
+
 </div>
 </a>
       {{!-- <div class="box">

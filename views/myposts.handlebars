@@ -2,70 +2,30 @@
   <div class="container">
     <h1 class="title">My Posts</h1>
 
-    {{#if result}}
+    {{#if userPosts}}
+    {{#each userPosts as |post|}}
     <a href="/post/{{id}}">
-  <div class="card">
-    <section>
-          {{#each result as |post|}}
-    <header class="card-header">
-      <p class="card-header-title">{{result}}</p>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        {{caption}}
-        {{#if recommended}}
-        <p><strong>Recommended: </strong> Yes</p>
-        {{else}}
-        <p><strong>Recommended: </strong> No</p>
-        {{/if}}
-        - {{user.name}}
-      </div>
+    <div class="card onePost">
+      <section>
+        <header class="card-header">
+          <p class="card-header-title">{{post.mbid}}</p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            {{post.caption}}
+            {{#if post.recommended}}
+            <p><strong>Recommended: </strong> Yes</p>
+            {{else}}
+            <p><strong>Recommended: </strong> No</p>
+            {{/if}}
+            <br>
+            - {{post.user.name}}
+          </div>
+        </div>
+        {{/each}}
+      </section>
     </div>
-    {{/each}}
-    </section>
-
-</div>
-</a>
-      {{!-- <div class="box">
-        <section class="user-posts">
-          {{#each userPosts as |post|}}
-            <div class="box">
-              <article class="media">
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>{{post.user.name}}</strong>
-                      <br>
-                      {{post.caption}}
-                    </p>
-                    <p><strong>Comments:</strong></p>
-                    {{#each post.comments as |comment|}}
-                      <div class="box">
-                        <article class="media">
-                          <div class="media-content">
-                            <div class="content">
-                              <p>
-                                <strong>{{comment.user.name}}</strong>
-                                <br>
-                                {{comment.text}}
-                              </p>
-                              {{#if comment.recommended}}
-                                <p><strong>Recommended: Yes</strong></p>
-                              {{else}}
-                                <p><strong>Recommended: No</strong></p>
-                              {{/if}}
-                            </div>
-                          </div>
-                        </article>
-                      </div>
-                    {{/each}}
-                  </div>
-                </div>
-              </article>
-            </div>
-          {{/each}}
-        </section>
-      </div> --}}
+    </a>
     {{else}}
       <p>No posts available.</p>
     {{/if}}

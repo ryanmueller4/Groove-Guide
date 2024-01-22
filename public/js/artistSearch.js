@@ -85,5 +85,4 @@ artistSearchForm.addEventListener("submit", event => {
         artistSearch(input.value);
         input.value = ""
     }
-
 });

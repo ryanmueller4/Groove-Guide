@@ -70,15 +70,16 @@ router.get('/createpost', withAuth, (req, res) => {
   res.render('createpost');
 });
 
-router.get('/newposts', withAuth, async (req, res) => {
+router.get('/myposts', withAuth, async (req, res) => {
 
   try {
     const userPostsData = await Post.findAll({
+      where: { user_id: req.session.user_id },
       order: [['createdAt', 'ASC']],
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'id'],
         },
         {
           model: Comment,
@@ -95,12 +96,11 @@ router.get('/newposts', withAuth, async (req, res) => {
     const userPosts = userPostsData.map((post) =>
       post.get({ plain: true })
     );
-
-    const result = userPosts.filter(X => X.user.name == 'username1');
+    console.log(userPosts)
 
     res.render('myposts', {
       isAuthenticated: req.session.isAuthenticated,
-      result,
+      userPosts,
     });
   } catch (err) {
     res.status(500).json(err);

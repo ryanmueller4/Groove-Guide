@@ -8,25 +8,55 @@ const artistSearch = artist => {
     fetch(mbArtistSearch).then(response => {
         return (response.json());
     }).then(artist => {
-        console.log(artist);
+        console.log(artist.artists[0].id);
         console.log(artist.artists[0].name);
-        artistLookup(artist.artists[0].id)
+        artistBrowse(artist.artists[0].id);
+        artistBrowseOffset25(artist.artists[0].id);
+        artistBrowseOffset50(artist.artists[0].id);
     })
 };
 
-const artistLookup = id => {
-    var mbArtistLookup = 'https://musicbrainz.org/ws/2/artist/' + id + '?inc=recordings&fmt=json';
+const artistBrowse = id => {
+    var mbArtistBrowse = 'https://musicbrainz.org/ws/2/release-group?artist=' + id + '&type=album|single|ep&fmt=json';
 
-    console.log(mbArtistLookup);
+    console.log(mbArtistBrowse);
 
-    fetch(mbArtistLookup).then(response => {
+    fetch(mbArtistBrowse).then(response => {
         return (response.json());
     }).then(artist => {
-        console.log(artist);
-        console.log(artist.recordings);
-        for (let index = 0; index < artist.recordings.length; index++) {
-            const recording = artist.recordings[index].title;
-            console.log(recording)
+        for (let index = 0; index < artist["release-groups"].length; index++) {
+            const release = artist["release-groups"][index].title;
+            console.log(release)
+        }
+    })
+};
+
+const artistBrowseOffset25 = id => {
+    var mbArtistBrowse = 'https://musicbrainz.org/ws/2/release-group?artist=' + id + '&type=album|single|ep&offset=25&fmt=json';
+
+    console.log(mbArtistBrowse);
+
+    fetch(mbArtistBrowse).then(response => {
+        return (response.json());
+    }).then(artist => {
+        for (let index = 0; index < artist["release-groups"].length; index++) {
+            const release = artist["release-groups"][index].title;
+            console.log(release)
+        }
+    })
+};
+
+const artistBrowseOffset50 = id => {
+    var mbArtistBrowse = 'https://musicbrainz.org/ws/2/release-group?artist=' + id + '&type=album|single|ep&offset=50&fmt=json';
+
+    console.log(mbArtistBrowse);
+
+    fetch(mbArtistBrowse).then(response => {
+        return (response.json());
+    }).then(artist => {
+        for (let index = 0; index < artist["release-groups"].length; index++) {
+            const release = artist["release-groups"][index].title;
+            console.log(release)
         }
     })
 };

@@ -1,26 +1,21 @@
 <!-- renders when login -->
 <div class="section">
   <div class="container">
-    <h1 class="title">Welcome to GrooveGuide</h1>
-    {{!-- Display user-related content based on authentication status --}}
-    <form id="artistSearchForm">
-      <input type="text" id="artistSearchInput" class="input is-link" placeholder="Search for Artists"/>
-      <button type="submit" class="button is-info is-medium">Search</button>
-    </form>
-
-    <form id="releaseSearchForm">
-      <input type="text" id="releaseSearchInput" class="input is-link" placeholder="Search for Songs or Albums"/>
-      <button type="submit" class="button is-info is-medium">Search</button>
-    </form>
-
+    <h1 class="title has-text-centered">Welcome to GrooveGuide!</h1>
+    <br>
+  
     {{!-- Display posts --}}
      {{#if posts}}
-      <h2 class="subtitle">Recent Posts:</h2>
       <div class="box">
+        <h2 class="title">Recent Posts:</h2>
+        <hr class="has-background-grey-darker">
+        <br>
         <section class="posts">
           {{#each posts as |post|}}
+          <section class="onePost">
             {{> post-details}}
-            <hr class="has-background-grey-darker is-marginless">
+          </section>
+            <br>
           {{/each}}
         </section>
       </div>

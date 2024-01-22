@@ -70,6 +70,15 @@ router.get('/post/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/createpost', withAuth, (req, res) => {
+  console.log(req.session.isAuthenticated)
+  res.render('createpost')
+});
+
+router.get('/myposts', withAuth, (req, res) => {
+  res.render('myposts')
+})
+
 router.get('/login', (req, res) => {
   if (req.session && req.session.isAuthenticated) {
       res.redirect('/');

@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GrooveGuide</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
    <!-- Navigation bar -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="/">
-        {{ GrooveGuide }}
-      </a>
+  <nav class="navbar is-info is-spaced" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand pr-5">
+      <img src="/images/grooveguideimg.png" width="150" height="50">
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+
+        <a class="navbar-item" href="/createpost">
+          Create A Post
+        </a>
+
+        <a class="navbar-item" href="/myposts">
+          View My Posts
+        </a>
+      </div>
     </div>
 
     <div class="navbar-end">
@@ -24,28 +37,21 @@
             <button class="button is-danger" id="logout">
               Log out
             </button>
-          {{else}}
-            <a class="button is-light" href="/login">
-              Log in
-            </a>
-            <a class="button is-primary" href="/signup">
-              Sign up
-            </a>
           {{/if}}
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="">
+  <main>
       {{{ body }}}
   </main>
 
   {{#if isAuthenticated}}
   <script src="/js/logout.js"></script>
   {{/if}}
-<script src="/js/artistSearch.js"></script>
-<script src="/js/releaseSearch.js"></script>
+  <script src="/js/artistSearch.js"></script>
+
 </body>
 
 </html>

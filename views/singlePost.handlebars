@@ -1,6 +1,33 @@
-<h1>{{post.mbid}}</h1>
-<p>{{post.caption}}</p>
-<p>- {{post.user.name}}</p>
-{{#each post.comments as |comment|}}
-{{> comment-details}}
-{{/each}}
+<div class="card onePost">
+    <header class="card-header">
+        <p class="card-header-title">{{post.mbid}}</p>
+      </button>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{#if post.recommended}}
+        <p><strong>Recommended: </strong> Yes</p>
+        {{else}}
+        <p><strong>Recommended: </strong> No</p>
+        {{/if}}
+        {{post.caption}}
+        <br>
+        - {{post.user.name}}
+      </div>
+    </div>
+</div>
+<br>
+<section class="comment-section">
+    <h2><strong>Comments:</strong></h2>
+    <br>
+    <ul>
+        {{#each post.comments as |comment|}}
+        <div class="card oneComment">
+            <p class="card-header-title">
+                {{> comment-details}}
+            </p>
+        </div>
+        <br>
+        {{/each}}
+    </ul>
+</section>

@@ -5,12 +5,12 @@
     </header>
     <div class="card-content">
       <div class="content">
+        {{post.caption}}
         {{#if post.recommended}}
         <p><strong>Recommended: </strong> Yes</p>
         {{else}}
         <p><strong>Recommended: </strong> No</p>
         {{/if}}
-        {{post.caption}}
         <br>
         - {{post.user.name}}
       </div>

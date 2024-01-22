@@ -2,41 +2,25 @@
 <div class="section">
   <div class="container">
     <h1 class="title">Welcome to GrooveGuide</h1>
-    {{!-- Check if artists data is available --}}
-    {{#if artists}}
-      <h2 class="subtitle">Top Artists:</h2>
-      <ul>
-        {{!-- Iterate through the artists and display relevant information --}}
-        {{#each artists}}
-          <li>
-            <strong>{{ name }}</strong> ({{ country }})
-          </li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>No artist data available.</p>
-    {{/if}}
     {{!-- Display user-related content based on authentication status --}}
-    {{#if isAuthenticated}}
-      <p>You are currently logged in. <a href="/logout">Log out</a></p>
-    {{else}}
-      <p>You are not logged in. <a href="/views/login.handlebars">Log in</a> or <a href="/views/login.handlebars">Sign up</a>.</p>
-    {{/if}}
+    <form id="artistSearchForm">
+      <input type="text" id="artistSearchInput" class="input is-link" placeholder="Search for Artists"/>
+      <button type="submit" class="button is-info is-medium">Search</button>
+    </form>
+
+    <form id="releaseSearchForm">
+      <input type="text" id="releaseSearchInput" class="input is-link" placeholder="Search for Songs or Albums"/>
+      <button type="submit" class="button is-info is-medium">Search</button>
+    </form>
+
     {{!-- Display posts --}}
      {{#if posts}}
       <h2 class="subtitle">Recent Posts:</h2>
-      <ul>
-        {{!-- Iterate through the posts and display relevant information --}}
-        {{#each posts}}
-          <li>
-            <strong>Post Caption:</strong> {{ caption }}
-            <br>
-            <strong>Recommended:</strong> {{ recommended }}
-            <br>
-            <strong>User ID:</strong> {{ user_id }}
-          </li>
+      <section class="posts">
+        {{#each posts as |post|}}
+        {{> post-details}}
         {{/each}}
-      </ul>
+      </section>
     {{else}}
       <p>No posts available.</p>
     {{/if}}

@@ -1,6 +1,14 @@
 <h1>{{mbid}}</h1>
 <p>{{caption}}</p>
+{{#if recommended}}
+<p><strong>Recommended: Yes</strong></p>
+{{else}}
+<p><strong>Recommended: No</strong></p>
+{{/if}}
 <p>- {{user.name}}</p>
+<br>
+<p><strong>Comments:</strong></p>
+<br>
 {{#each comments as |comment|}}
 {{> comment-details}}
 {{/each}}

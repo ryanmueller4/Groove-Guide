@@ -1,38 +1,12 @@
 const router = require('express').Router();
 const { Post, Comment, User} = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-  if (!req.session || !req.session.isAuthenticated) {
-    res.redirect('/login');
-    return;
-  }
-
-  try {
-    // Get all users, sorted by name
-    // const userData = await User.findAll({
-      //  attributes: { exclude: ['password'] },
-      // order: [['name', 'ASC']],
-    // });
-
-    // Serialize user data so templates can read it
-    // const users = userData.map((project) => project.get({ plain: true }));
-
-    // Pass serialized data into Handlebars.js template
-    res.render('homepage', {isAuthenticated: req.session.isAuthenticated});
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/post', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   // find all posts
-  if (!req.session || !req.session.isAuthenticated) {
-    res.redirect('/login');
-    return;
-  }
-
   try {
     const postData = await Post.findAll({
+      order: [[ 'createdAt', 'ASC' ]],
       include: [
         {
           model: User,
@@ -54,8 +28,8 @@ router.get('/post', async (req, res) => {
     post.get({ plain: true })
   );
 
-  console.log(posts)
-  res.render('postList', {
+  res.render('homepage', {
+    isAuthenticated: req.session.isAuthenticated,
     posts,
   });
   } catch (err) {
@@ -63,13 +37,8 @@ router.get('/post', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   // find one post by its `id` value
-  if (!req.session || !req.session.isAuthenticated) {
-    res.redirect('/login');
-    return;
-  }
-
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -92,6 +61,7 @@ router.get('/post/:id', async (req, res) => {
   const post = postData.get({plain: true})
 
   console.log(post)
+
   res.render('singlePost', {
     post,
   });
